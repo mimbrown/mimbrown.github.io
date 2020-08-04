@@ -9,7 +9,7 @@ script:
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: ${{ secrets.TRAVIS_CI_TOKEN }}
+  github_token: $secrets.TRAVIS_CI_TOKEN
   local_dir: docs
   on:
     branch: master
