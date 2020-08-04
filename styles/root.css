@@ -1,0 +1,2 @@
+*{box-sizing:inherit}html{box-sizing:border-box}html,body{height:100%;margin:0}body{display:flex;background:url(/images/home-page.jpg) 55% 75%/cover}#links{width:200px}a{position:relative;display:block;margin:30px 0 0 30px;padding:10px 20px;text-decoration:none;background-color:rgba(170,57,57,0.8);color:white;border-radius:5px;text-align:center;box-shadow:3px 3px 3px 0 rgba(0,0,0,0.5);transition:300ms}a:hover{background-color:#aa3939;box-shadow:6px 6px 6px 0 rgba(0,0,0,0.5);transition:300ms}
+
