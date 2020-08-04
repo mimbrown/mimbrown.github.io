@@ -1,0 +1,56 @@
+* {
+  box-sizing: inherit;
+}
+html {
+  box-sizing: border-box;
+}
+html,body {
+  height: 100%;
+  margin: 0;
+}
+body {
+  display: flex;
+  /* justify-content: center;
+  align-items: center; */
+  /* padding: 30px; */
+  background: url(../images/home-page.jpg) 55% 75%/cover;
+  /* backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px); */
+}
+#links {
+  width: 200px;
+}
+a {
+  position: relative;
+  display: block;
+  /* margin: 5px 0; */
+  margin: 30px 0 0 30px;
+  padding: 10px 20px;
+  text-decoration: none;
+  /* background-color: rgba(0,0,0,.5); */
+  background-color: rgba(170,57,57,.8);
+  color: white;
+  border-radius: 5px;
+  /* color: black; */
+  text-align: center;
+  box-shadow: 3px 3px 3px 0 rgba(0,0,0,.5);
+  transition: 300ms;
+}
+/* a::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: -10px;
+  right: -10px;
+  top: -10px;
+  bottom: -10px;
+  backdrop-filter: blur(4px);
+  border-radius: 5px;
+} */
+a:hover {
+  /* background-color: rgba(0,0,0,.8); */
+  background-color: rgba(170,57,57,1);
+  box-shadow: 6px 6px 6px 0 rgba(0,0,0,.5);
+  /* color: white; */
+  transition: 300ms;
+}
