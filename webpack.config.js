@@ -107,6 +107,7 @@ module.exports = {
       filename: 'index.html',
       template: 'src/index.html',
       inject: false,
+      cache: false,
     }),
     new HtmlWebpackPlugin({
       filename: 'resume/index.html',
