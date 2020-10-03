@@ -11,6 +11,7 @@ module.exports = {
   entry: {
     root: './src/styles/root.scss',
     resume: './src/styles/resume.scss',
+    gallery: './src/styles/gallery.scss',
   },
   // This is where we define the path where Webpack will place
   // the bundled JS file
@@ -113,6 +114,13 @@ module.exports = {
       filename: 'resume/index.html',
       template: 'src/resume/index.html',
       inject: false,
+      cache: false,
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'gallery/index.html',
+      template: 'src/gallery/index.html',
+      inject: false,
+      cache: false,
     }),
     new CopyPlugin({
       patterns: [
