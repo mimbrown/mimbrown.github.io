@@ -25,6 +25,7 @@ export default defineComponent({
     initialText: String,
     initialMarkup: Array,
     specialTab: Boolean,
+    focus: Boolean,
   },
   data(props) {
     return {
@@ -124,6 +125,18 @@ export default defineComponent({
         newMarkup.push(markup);
       }
       this.markup = newMarkup;
+    },
+  },
+  watch: {
+    focus: {
+      handler(val?: boolean, oldVal?: boolean) {
+        if (!val !== !oldVal) {
+          this.$nextTick(() => {
+            (this.$el as HTMLDivElement)[val ? 'focus' : 'blur']();
+          });
+        }
+      },
+      immediate: true,
     },
   },
 });

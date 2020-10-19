@@ -1,25 +1,24 @@
 <script lang="ts">
 import {
-  defineComponent, h, reactive, ref,
+  defineComponent, Fragment, h, PropType, reactive, ref,
 } from 'vue';
 import {
-  buildGridArea, Leaf, Root, TreeNode, TreeNodeBase,
+  buildGridArea, Leaf, NodeJSON, Root, TreeNode, TreeNodeBase,
 } from '@/models/Tree';
-import Icon from './Icon.vue';
 
 export default defineComponent({
   props: {
-    items: Array,
+    modelValue: {
+      type: Array as PropType<NodeJSON[]>,
+      required: true,
+    },
   },
   setup(props) {
-    const root = new Root(
-      '',
-      (props.items as string[]).map((text) => new Leaf(text)),
-    );
+    const root = Root.fromJSON(props.modelValue);
     const totalLevels = ref(0);
 
     function updateRoot() {
-      totalLevels.value = root.calculateSpatial(0);
+      totalLevels.value = root.calculateSpatial(root, 0);
     }
     updateRoot();
 
@@ -30,6 +29,9 @@ export default defineComponent({
     };
   },
   methods: {
+    done(): void {
+      this.$emit('update:modelValue', this.root.toJSON());
+    },
     refresh(): void {
       this.updateRoot();
       this.$forceUpdate();
@@ -71,43 +73,52 @@ export default defineComponent({
   },
   render() {
     const children = [];
-    for (const child of this.root.render(0, this.totalLevels, this)) {
+    for (const child of this.root.render(this.totalLevels, this)) {
       children.push(child);
     }
-    const totalBlocks = this.root.blockWidth;
-    const level = this.totalLevels * 2;
-    for (let i = 0; i <= totalBlocks; i++) {
-      children.push(
-        h('div', {
-          style: {
-            gridArea: buildGridArea(
-              level, 1,
-              i * 2 + 1, 1,
-            ),
-          },
-        }, h(Icon, { name: 'add', size: 16 })),
-      );
-    }
-    return h('div', {
-      class: 'tree-builder',
-    }, h('div', {
-      class: 'tree-editor',
-    }, children));
+    // const numAdds = this.root.width / 2 - 1;
+    // const totalBlocks = this.root.blockWidth;
+    // const level = this.totalLevels * 3;
+    // for (let i = 0; i <= totalBlocks; i++) {
+    //   children.push(
+    //     h('div', {
+    //       style: {
+    //         gridArea: buildGridArea(
+    //           level, 1,
+    //           i * 3 + 1, 1,
+    //         ),
+    //       },
+    //     }, h(Icon, { name: 'add', size: 16 })),
+    //   );
+    // }
+    return h(Fragment, [
+      h('div', {
+        class: 'tree-actions',
+      }, [
+        h('button', {
+          onClick: this.done,
+        }, 'Done'),
+      ]),
+      h('div', {
+        class: 'tree-editor',
+      }, children),
+    ]);
   },
 });
 </script>
 
 <style>
-.tree-builder {
-  display: flex;
-  min-height: 400px;
-  align-items: flex-end;
-}
 .tree-editor {
   display: grid;
-  gap: 1px 5px;
+  align-self: flex-end;
+  gap: 2px;
   grid-auto-columns: min-content;
   grid-auto-rows: min-content;
-  align-items: center;
+  justify-items: stretch;
+  align-items: stretch;
+}
+.tree-editor .svg-path {
+  width: 100%;
+  height: 30px;
 }
 </style>

@@ -1,11 +1,12 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <InterlinearEditor />
-    <p>{{ test }}</p>
+    <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
+    <!-- <InterlinearEditor /> -->
+    <!-- <p>{{ test }}</p> -->
     <!-- <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/> -->
     <!-- <icon name="connect" /> -->
-    <TreeEditor :items="['mera', 'naam', 'Michael', 'hai']" />
+    <Tree />
+    <!-- <Canvas :text="text" /> -->
   </div>
 </template>
 
@@ -13,19 +14,22 @@
 import { defineComponent } from 'vue';
 // import HelloWorld from '@/components/HelloWorld.vue';
 // import Icon from '@/components/Icon.vue';
-import TreeEditor from '@/components/TreeEditor.vue';
-import InterlinearEditor from '@/components/InterlinearEditor.vue';
+import Tree from '@/components/Tree.vue';
+// import InterlinearEditor from '@/components/InterlinearEditor.vue';
+// import Canvas from '@/components/Canvas.vue';
 
 export default defineComponent({
   name: 'Home',
   components: {
     // HelloWorld,
     // Icon,
-    TreeEditor,
-    InterlinearEditor,
+    Tree,
+    // InterlinearEditor,
+    // Canvas,
   },
   data() {
     return {
+      text: 'NP<sub>POS</sub> This is a <b>test</b> <i><b>of</b> the emergency</i> <span style="font-variant: small-caps;">system</span>',
       test: ['mera', 'my'],
     };
   },
