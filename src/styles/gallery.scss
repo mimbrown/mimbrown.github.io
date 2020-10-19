@@ -6,7 +6,6 @@ html {
   scroll-behavior: smooth;
   font-family: 'Roboto', sans-serif;
   color: white;
-  scroll-snap-type: y proximity;
 }
 html,body {
   // height: 100%;
@@ -19,41 +18,69 @@ body {
 }
 
 section {
-  height: 100vh;
-  padding: 56px 25% 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: sticky;
-  top: 0;
+  height: 200vh;
+  // padding: 56px 25% 0;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
   // flex-direction: column;
-  background: linear-gradient(to bottom, black, red);
-  -webkit-clip-path: polygon(0 56px, 100% 0, 100% 100%, 0 100%);
-  clip-path: polygon(0 56px, 100% 0, 100% 100%, 0 100%);
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
+  // background: linear-gradient(to bottom, black, red);
+  // -webkit-clip-path: polygon(0 56px, 100% 0, 100% 100%, 0 100%);
+  // clip-path: polygon(0 56px, 100% 0, 100% 100%, 0 100%);
+  position: relative;
 }
 
+section:nth-child(odd) {
+  background: url(../images/space.jpg) center / cover fixed;
+}
+
+section:nth-child(even) {
+  background-color: lightslategray;
+}
+
+// section::before {
+//   content: "";
+//   display: block;
+//   background-color: black;
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   height: 100vh;
+// }
+
+// section::after {
+//   content: "";
+//   display: block;
+//   background: linear-gradient(to bottom, black, transparent);
+//   position: absolute;
+//   top: 100vh;
+//   left: 0;
+//   right: 0;
+//   height: 100vh;
+// }
+
 .section-content {
-  z-index: -1;
+  z-index: 1;
   // position: sticky;
   // top: 0;
-  // height: 100vh;
-  width: 50%;
+  height: 100vh;
+  // width: 50%;
+  padding: 0 25%;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: black;
+  box-shadow: 0 10px 12px 8px black;
 }
 
-#cover {
+header {
   height: 100vh;
   background: url(../images/space.jpg) center / cover;
   z-index: 10;
   position: sticky;
   top: calc(56px - 100%);
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
 }
 
 // .header-backer {
@@ -65,11 +92,11 @@ section {
 //   background-color: black;
 // }
 
-header {
-  position: sticky;
-  top: 0px;
+nav {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   z-index: 20;
-  margin-top: -56px;
   height: 56px;
   border-top: 1px solid white;
   border-bottom: 1px solid white;
