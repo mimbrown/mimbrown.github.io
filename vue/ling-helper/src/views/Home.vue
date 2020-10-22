@@ -6,6 +6,7 @@
     <!-- <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/> -->
     <!-- <icon name="connect" /> -->
     <Tree />
+    <Quill />
     <!-- <Canvas :text="text" /> -->
   </div>
 </template>
@@ -17,6 +18,7 @@ import { defineComponent } from 'vue';
 import Tree from '@/components/Tree.vue';
 // import InterlinearEditor from '@/components/InterlinearEditor.vue';
 // import Canvas from '@/components/Canvas.vue';
+import Quill from '@/components/Quill.vue';
 
 export default defineComponent({
   name: 'Home',
@@ -26,6 +28,7 @@ export default defineComponent({
     Tree,
     // InterlinearEditor,
     // Canvas,
+    Quill,
   },
   data() {
     return {
