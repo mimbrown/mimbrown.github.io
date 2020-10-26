@@ -1,0 +1,7 @@
+{
+  "name": "Ling Helper",
+  "short_name": "Ling Helper",
+  "description": "Create, store, and export interlinear and tree data",
+  "display": "standalone",
+  "scope": "/"
+}

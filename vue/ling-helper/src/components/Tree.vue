@@ -4,7 +4,7 @@
     <template v-else>
       <div class="tree-actions">
         <button @click="isEditing = true">Edit</button>
-        <button>Export</button>
+        <button @click="addSnackbar({ message: 'Exported!' })">Export</button>
         <button>Copy</button>
       </div>
       <TreeCanvas :nodes="model" />
@@ -37,6 +37,7 @@ export default defineComponent({
       model: saved ? JSON.parse(saved) as NodeJSON[] : [{ text: '' }],
     };
   },
+  inject: ['addSnackbar'],
   methods: {
     finishEdit(model: NodeJSON[]) {
       this.model = model;
