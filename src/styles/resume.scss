@@ -88,44 +88,15 @@ footer {
   padding: 8px;
 }
 
-address {
-  font-style: normal;
-}
-
 footer > *:not(:first-child)::before {
   content: " \2022  ";
   white-space: pre;
-  /* display: inline-block; */
   color: black;
-  /* font-size: 26px; */
-  /* padding: 0 8px; */
-}
-
-.street,.city-state-zip {
-  display: block;
-}
-
-@media (min-width: 400px) {
-  .street,.city-state-zip {
-    display: inline;
-  }
-  .street::after {
-    content: ", ";
-  }
 }
 
 @media only screen and (max-width: 500px) {
   .details {
     flex-direction: column;
-  }
-}
-@media only screen and (max-width: 720px) {
-  address {
-    display: block;
-    margin-top: 6px;
-  }
-  address::before {
-    content: none !important;
   }
 }
 @media only screen and (max-width: 380px) {
@@ -135,8 +106,8 @@ footer > *:not(:first-child)::before {
   footer > * {
     display: block;
   }
-  footer > *::before {
-    content: none !important;
+  footer > *:not(:first-child)::before {
+    content: none;
   }
 }
 
@@ -147,7 +118,7 @@ footer > *:not(:first-child)::before {
 
   @page {
     size: A4;
-    margin: 0.5in;
+    margin: 0.4in;
   }
   html,body {
     height: 100%;
