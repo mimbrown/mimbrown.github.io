@@ -12,15 +12,17 @@
     </p>
     <template v-if="projectOptions.length > 1">
       <h3>Choose a Language</h3>
-      <button
-        v-for="(proj, index) of projectOptions"
-        :key="proj.name"
-        class="lang"
-        :style="{ font: proj.font || null }"
-        @click="selectedProject = index"
-      >
-        {{ proj.name }}
-      </button>
+      <div class="language-options">
+        <button
+          v-for="(proj, index) of projectOptions"
+          :key="proj.name"
+          :class="{ lang: true, active: selectedProject === index }"
+          :style="{ font: proj.font || null }"
+          @click="selectedProject = index"
+        >
+          {{ proj.name }}
+        </button>
+      </div>
     </template>
     <p>
       <button :disabled="selectedProject < 0" @click="acknowledge">BEGIN</button>
@@ -63,5 +65,17 @@ export default defineComponent({
   padding: 0 8px;
   flex: 1;
   overflow-y: auto;
+}
+.language-options {
+  display: flex;
+  justify-content: center;
+}
+.lang {
+  display: block;
+  margin: 0 8px;
+  padding: 8px 12px;
+}
+.lang.active {
+  background-color: lightblue;
 }
 </style>
