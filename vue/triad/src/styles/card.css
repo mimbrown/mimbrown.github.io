@@ -1,0 +1,45 @@
+.card {
+  padding: 4px 12px;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  background-color: whitesmoke;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.card p {
+  margin-block-start: 4px;
+  margin-block-end: 4px;
+}
+.title {
+  text-transform: uppercase;
+  font-size: 1.2em;
+  margin: 8px 0;
+}
+.subtitle {
+  font-size: 0.8em;
+  text-align: right;
+}
+.multi-title {
+  display: grid;
+  grid-template: 1fr / 1fr;
+  place-items: center;
+}
+.multi-title > * {
+  opacity: 0;
+  grid-area: 1 / 1 / 1 / 1;
+}
+.multi-title .inactive {
+  opacity: 0;
+  transition: opacity 300ms;
+}
+.multi-title .active {
+  opacity: 1;
+  transition: opacity 300ms 300ms;
+}

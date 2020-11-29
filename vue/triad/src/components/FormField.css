@@ -1,0 +1,39 @@
+form > * {
+  margin-left: 6px;
+  margin-right: 6px;
+}
+
+.form-field {
+  margin-top: 6px;
+  margin-bottom: 6px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  text-align: left;
+  display: block;
+}
+
+input[type=text] {
+  flex: 1;
+}
+
+.field-label-post {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.field-label-required::after {
+  content: " *";
+  color: #B00020;
+}
+
+.field-error {
+  height: 1.5em;
+  width: 100%;
+  color: #B00020;
+  margin: 0;
+  text-align: right;
+  font-size: 0.8em;
+}
