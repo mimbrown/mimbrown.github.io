@@ -69,7 +69,7 @@ export default defineComponent({
       const next = getNextItem(triads);
       if (next) {
         currentTriad.value = next;
-        progress.value = Math.round(responses.length * 100 / (responses.length + triads.length));
+        progress.value = Math.round(responses.length * 100 / (responses.length + triads.length + 1));
       } else {
         emit('completed', responses);
       }
@@ -99,7 +99,18 @@ export default defineComponent({
   align-items: stretch;
   padding: 0 8px;
 }
+@keyframes comeIn {
+  from {
+    opacity: 0;
+    /* right: 30px; */
+  }
+  to {
+    opacity: 1;
+    /* right: 0; */
+  }
+}
 .triad-option {
+  /* position: relative; */
   max-width: 400px;
   width: 100%;
   margin: 12px auto;
@@ -107,6 +118,10 @@ export default defineComponent({
   display: flex;
   align-items: center;
   justify-content: center;
+  animation: comeIn 600ms forwards;
+}
+.triad-option:active {
+  background-color: lightblue;
 }
 .progress-bar-container {
   margin: 8px 24px;

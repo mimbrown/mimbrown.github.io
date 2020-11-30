@@ -24,9 +24,7 @@
         </button>
       </div>
     </template>
-    <p>
-      <button :disabled="selectedProject < 0" @click="acknowledge">BEGIN</button>
-    </p>
+    <button class="begin-button" :disabled="selectedProject < 0" @click="acknowledge">BEGIN</button>
   </div>
 </template>
 
@@ -71,11 +69,18 @@ export default defineComponent({
   justify-content: center;
 }
 .lang {
-  display: block;
   margin: 0 8px;
-  padding: 8px 12px;
+  background-color: transparent;
+  border: 1px solid black;
+  color: black;
 }
 .lang.active {
   background-color: lightblue;
+}
+.begin-button {
+  margin-top: 16px;
+  padding-right: 3rem;
+  padding-left: 3rem;
+  border-radius: 5px;
 }
 </style>

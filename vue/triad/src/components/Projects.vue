@@ -1,8 +1,8 @@
 <template>
   <div class="projects">
-    <div v-for="project of projects" :key="project.id">
+    <div class="project-wrap" v-for="project of projects" :key="project.id">
       <ProjectThumb :project="project" @click="goTo(project.id)" />
-      <router-link :to="`/results/${project.id}`">View Results</router-link>
+      <router-link role="button" :to="`/results/${project.id}`">View Results</router-link>
     </div>
   </div>
 </template>
@@ -35,5 +35,11 @@ export default defineComponent({
   display: flex;
   justify-content: center;
   padding: 8px;
+}
+.project-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
 }
 </style>
