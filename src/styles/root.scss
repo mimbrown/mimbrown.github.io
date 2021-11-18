@@ -4,6 +4,7 @@
 html {
   box-sizing: border-box;
   scroll-behavior: smooth;
+  overflow: hidden;
 }
 html,body {
   height: 100%;
@@ -13,17 +14,26 @@ body {
   // display: flex;
   /* justify-content: center;
   align-items: center; */
-  padding: 15px;
+  padding: 0 15px 15px;
   background: url(../images/home-page.jpg) 55% 75%/cover fixed;
+  overflow-y: auto;
   /* backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px); */
 }
+$material: rgba(255,255,255,0.8);
 main {
-  background: rgba(255,255,255,0.8);
-  border-radius: 10px;
+  background: $material;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
   padding: 10px;
-  margin-bottom: calc(100vh - 39px);
   max-width: 320px;
+  &::before {
+    content: "";
+    width: 50px;
+    height: 2em;
+    display: block;
+    float: left;
+  }
 }
 p {
   margin: 0;
@@ -46,12 +56,17 @@ main > *:not(:last-child) {
   height: 24px;
   fill: transparent;
   stroke: black;
-  stroke-width: 2;
+  stroke-width: 3;
   stroke-linecap: round;
+}
+.main-view {
+  position: absolute;
+  top: 10px;
+  left: 24px;
 }
 a {
   text-decoration: none;
-  color: rgb(170,57,57);
+  color: rgb(170, 57, 57);
 }
 a:hover {
   text-decoration: underline;
@@ -99,4 +114,23 @@ a.main:hover {
   box-shadow: 6px 6px 6px 0 rgba(0,0,0,.5);
   /* color: white; */
   transition: box-shadow 300ms;
+}
+
+.main-view-toggle {
+  transform: none;
+  transition: transform 300ms;
+}
+
+.active .main-view-toggle {
+  transform: rotate3d(0, 1, 0, 180deg);
+  transition: transform 300ms;
+}
+
+@media only screen and (min-width: 1000px) {
+  .fs-only {
+    display: none !important;
+  }
+  main {
+    margin-bottom: 0;
+  }
 }

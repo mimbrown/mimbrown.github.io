@@ -12,14 +12,19 @@
     <link rel="manifest" href="/site.webmanifest">
   </head>
   <body>
-    <main>
+    <button class="main-view" onclick="document.getElementById('mainView').classList.toggle('active')">
+      <svg viewbox="0 0 24 24" class="icon main-view-toggle">
+        <path d="M17,2L7,12L17,22"></path>
+      </svg>
+    </button>
+    <main id="mainView">
       <p>
         Welcome! We're the Browns. My name is Michael. I'm a software developer and this is my playground/junk drawer.
       </p>
-      <p>
+      <p class="fs-only">
         If you're just looking for a nice picture, take a look here:
       </p>
-      <a class="main" href="#bottom" title="It's nice because my wife is in it, let's be sure to clarify.">Nice Picture</a>
+      <a class="main fs-only" href="#bottom" title="It's nice because my wife is in it, let's be sure to clarify.">Nice Picture</a>
       <p>
         If you're here for work-related purposes, here are some links that may help:
       </p>
@@ -30,9 +35,9 @@
       </p>
       <a class="main" href="https://xkcd.com/1985/" title="Title text required. When this first came out, I had recently graduated with a math undergrad degree, was working as a software developer, and was in the middle of an MA in applied linguistics. I've never felt more related to.">xkcd Meteorologist</a>
       <p>
-        If you got to this point and didn't find what you are looking for, then I must offer humble apologies. Please don't allow the lack of relevant links to ruin your day. There's <a href="https://www.google.com/">a whole lot more internet</a> out there to explore; maybe it contains what you seek.
+        If you got to this point and didn't find what you are looking for, then I must apologize. Please don't allow the lack of relevant links to ruin your day. There's <a href="https://www.google.com/">a whole lot more internet</a> out there to explore; maybe it contains what you seek.
       </p>
-      <a id="bottom" href="#">
+      <a id="bottom" class="fs-only" href="#">
         <svg class="icon" viewbox="0 0 24 24">
           <path d="M2,15L12,8L22,15"></path>
         </svg>

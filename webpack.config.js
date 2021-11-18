@@ -113,6 +113,7 @@ module.exports = {
       filename: 'resume/index.html',
       template: 'src/resume/index.html',
       inject: false,
+      cache: false,
     }),
     new CopyPlugin({
       patterns: [
