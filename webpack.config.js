@@ -96,7 +96,9 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: ['**/*', '!triad/**'],
+    }),
     // Configuration options for MiniCssExtractPlugin. Here I'm only
     // indicating what the CSS outputted file name should be and
     // the location
