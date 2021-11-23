@@ -1,33 +1,50 @@
-html,body {
+html, body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
+}
+
+:root {
+  --theme-surface: white;
+  --theme-off-surface: whitesmoke;
+  --theme-on-surface: black;
+  --theme-on-surface-lite: rgba(0,0,0,0.2);
+  --theme-accent: #aa3939;
 }
 
 body {
   display: flex;
   flex-direction: column;
+  background-color: var(--theme-surface);
+}
+
+main {
+  background-color: var(--theme-surface);
+  color: var(--theme-on-surface);
+}
+
+header {
+  position: relative;
 }
 
 a {
-  color: #aa3939;
+  color: var(--theme-accent);
   text-decoration: none;
 }
 
 a.print {
   position: absolute;
-  right: 8px;
-  top: 20px;
+  right: 16px;
+  bottom: 8px;
   font-size: 1.2em;
 }
 
 h1 {
   font-weight: 300;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--theme-on-surface);
   padding-left: 4px;
 }
 
 h2 {
-  border-bottom: 1px solid rgba(0,0,0,0.3);
   padding-left: 16px;
   margin-bottom: 0;
 }
@@ -50,6 +67,7 @@ section {
   display: flex;
   justify-content: space-between;
   font-style: italic;
+  border-bottom: 1px solid var(--theme-on-surface-lite);
   margin-bottom: 8px;
 }
 
@@ -63,10 +81,6 @@ li {
   text-indent: -22px;
   padding-left: 22px;
 }
-
-/* em {
-  margin-left: 26px;
-} */
 
 address {
   display: inline;
@@ -82,16 +96,29 @@ address {
 }
 
 footer {
-  border-top: 1px solid black;
+  border-top: 1px solid var(--theme-on-surface);
   text-align: center;
-  margin-top: 16px;
+  margin-top: 32px;
   padding: 8px;
 }
 
 footer > *:not(:first-child)::before {
   content: " \2022  ";
   white-space: pre;
-  color: black;
+  color: var(--theme-on-surface);
+}
+
+@media screen and (min-width: 9in) {
+  body {
+    background-color: var(--theme-off-surface);
+  }
+  main {
+    max-width: 9in;
+    margin: 32px auto;
+    padding: 16px;
+    border-radius: 16px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  }
 }
 
 @media only screen and (max-width: 500px) {
@@ -120,7 +147,13 @@ footer > *:not(:first-child)::before {
     size: A4;
     margin: 0.4in;
   }
-  html,body {
+  footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  html, body {
     height: 100%;
   }
   hr {
@@ -128,5 +161,15 @@ footer > *:not(:first-child)::before {
   }
   a {
     color: inherit;
+  }
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  :root {
+    --theme-surface: black;
+    --theme-off-surface: rgb(24,24,24);
+    --theme-on-surface: white;
+    --theme-on-surface-lite: rgba(255,255,255,0.4);
+    --theme-accent: #{lighten(#aa3939, 20%)};
   }
 }
