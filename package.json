@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/mimbrown/mimbrown.github.io#readme",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "sass": "^1.43.4",
     "vite": "^2.6.14"
   },
